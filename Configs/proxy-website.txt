@@ -44,25 +44,27 @@
 		server.port:8080
 		server.servlet.context-path:/testproject
 
+	Description
+
 		Nginx Configuration:
-
-			You have an Nginx configuration that listens on port 80 for requests to localdomain.com 
-			When a request is received, Nginx is configured to proxy-pass that request to a Spring Boot application running on localhost:8080/social.
-
-		Spring Boot Application:
-
-			Your Spring Boot application, named "social," is running on localhost:8080/social.
-			This application handles the business logic and serves content related to your "social" project.
-
-		Hosts File:
-
-			In your computer's hosts file (located at C:\Windows\System32\drivers\etc\hosts), you've added an entry:
 		
-			127.0.0.1   localdomain.com
-			This entry ensures that when you type http://localdomain.com in your web browser, your computer knows to look at the local machine (127.0.0.1) for that domain.
-			Request Flow:
-
-			You type http://localdomain.com in your web browser.
+		You have an Nginx configuration that listens on port 80 for requests to localdomain.com 
+		When a request is received, Nginx is configured to proxy-pass that request to a Spring Boot application running on localhost:8080/social.
+		
+		Spring Boot Application:
+		
+		Your Spring Boot application, named "social," is running on localhost:8080/social.
+		This application handles the business logic and serves content related to your "social" project.
+		
+		Hosts File:
+		
+		In your computer's hosts file (located at C:\Windows\System32\drivers\etc\hosts), you've added an entry:
+		
+		127.0.0.1   localdomain.com
+		This entry ensures that when you type http://localdomain.com in your web browser, your computer knows to look at the local machine (127.0.0.1) for 		that domain.
+		Request Flow:
+		
+		You type http://localdomain.com in your web browser.
 			The hosts file helps your computer understand that localdomain.com is mapped to 127.0.0.1 (localhost).
 			Your browser sends the HTTP request to localdomain.com.
 			Nginx, configured to listen on port 80 for localdomain.com, receives the request.
