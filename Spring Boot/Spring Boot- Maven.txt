@@ -1,21 +1,97 @@
-// skip test while building zip
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Maven Build Commands Documentation</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      line-height: 1.6;
+      color: #333;
+      max-width: 800px;
+      margin: auto;
+    }
 
-mvn package -DskipTests
+    h1, h2, h3 {
+      color: #0080ff;
+    }
 
-mvn clean install -DskipTests
+    pre {
+      background-color: #f5f5f5;
+      padding: 10px;
+      border: 1px solid #ccc;
+      border-radius: 5px;
+    }
+  </style>
+</head>
+<body>
 
-try cache shortcut 
-cntl shift enter
+<h1>Maven Build Commands Documentation</h1>
 
+<p>This documentation provides an overview of commonly used Maven build commands for Java projects. Ensure that you have Maven installed on your system before executing these commands.</p>
 
-VpN!pf4#I4q&so5
+<h2>1. Build and Package (Skip Tests)</h2>
 
+<h3>Command:</h3>
 
+<pre><code>mvn package -DskipTests</code></pre>
 
+<h3>Description:</h3>
 
-//non skip
+<p>The <code>package</code> goal is used to compile the source code, run unit tests, and package the application into a distributable format (such as a JAR or WAR file). The <code>-DskipTests</code> option skips the execution of tests during the build process, resulting in a faster build.</p>
 
+<p>Use this command when you want to quickly build the project without running tests. For example:</p>
 
-mvn package
+<pre><code>mvn package -DskipTests</code></pre>
 
-//This command tells Maven to execute the package phase, which includes compiling your code, running tests, and packaging the application into a //distributable format (in this case, a WAR file).
+<h2>2. Clean, Install, and Package (Skip Tests)</h2>
+
+<h3>Command:</h3>
+
+<pre><code>mvn clean install -DskipTests</code></pre>
+
+<h3>Description:</h3>
+
+<ul>
+  <li>The <code>clean</code> goal removes the <code>target</code> directory, deleting previously compiled classes and resources.</li>
+  <li>The <code>install</code> goal compiles the source code, runs tests, and installs the project artifacts into the local Maven repository.</li>
+  <li>The <code>-DskipTests</code> option skips the execution of tests during the build process.</li>
+</ul>
+
+<p>Use this command when you want a clean build, install artifacts locally, and skip tests:</p>
+
+<pre><code>mvn clean install -DskipTests</code></pre>
+
+<h2>3. Build and Package (Including Tests)</h2>
+
+<h3>Command:</h3>
+
+<pre><code>mvn package</code></pre>
+
+<h3>Description:</h3>
+
+<p>The <code>package</code> goal, without the <code>-DskipTests</code> option, performs the following tasks:</p>
+
+<ul>
+  <li>Compiles the source code.</li>
+  <li>Runs unit tests.</li>
+  <li>Packages the application into a distributable format.</li>
+</ul>
+
+<p>Use this command when you want to build the project and run tests in one go:</p>
+
+<pre><code>mvn package</code></pre>
+
+<h2>Notes:</h2>
+
+<ul>
+  <li>Make sure Maven is installed on your system. You can download it from <a href="https://maven.apache.org/download.cgi">https://maven.apache.org/download.cgi</a>.</li>
+  <li>Adjust the commands based on your project's structure and requirements.</li>
+  <li>The <code>-DskipTests</code> option is useful for skipping tests when you need a faster build during development.</li>
+</ul>
+
+<p>Feel free to customize and expand this documentation based on your project's specifics.</p>
+
+</body>
+</html>
