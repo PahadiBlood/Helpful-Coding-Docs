@@ -1,0 +1,71 @@
+1- How run localhost as localdomain.com
+	
+	a. Domain Entry in Hosts File
+		Path- c:\Windows\System32\Drivers\etc\hosts
+
+		add ip and domain in hosts file
+		127.0.0.1 localdomain.com
+
+	b. Install Nginx
+		Url- https://nginx.org/en/docs/windows.html
+
+		Put folder in C:/ Drive - C:/nginx
+
+		Add this server details in nginx.conf file
+
+				server {
+				    listen 80;
+				    server_name localdomain.com;
+
+				    location / {
+				        proxy_pass http://127.0.0.1:8080/testproject/;
+				        proxy_set_header Host $host;
+				        proxy_set_header X-Real-IP $remote_addr;
+				        proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;
+				        proxy_set_header X-Forwarded-Proto $scheme;
+				        proxy_redirect off;
+				    }
+
+				    # Additional configurations (if needed)...
+
+				    # Error pages
+				    error_page 500 502 503 504 /50x.html;
+				    location = /50x.html {
+				        root html;
+				    }
+				}
+
+
+		Change proxy_pass port according your project port and change server_name which you added in hosts file
+		if you want to add multiple server copy above and change according your need
+
+
+	c.  Add context path and port(default 8080) in application
+		server.port:8080
+		server.servlet.context-path:/testproject
+
+		Nginx Configuration:
+
+			You have an Nginx configuration that listens on port 80 for requests to localdomain.com 
+			When a request is received, Nginx is configured to proxy-pass that request to a Spring Boot application running on localhost:8080/social.
+
+		Spring Boot Application:
+
+			Your Spring Boot application, named "social," is running on localhost:8080/social.
+			This application handles the business logic and serves content related to your "social" project.
+
+		Hosts File:
+
+			In your computer's hosts file (located at C:\Windows\System32\drivers\etc\hosts), you've added an entry:
+		
+			127.0.0.1   localdomain.com
+			This entry ensures that when you type http://localdomain.com in your web browser, your computer knows to look at the local machine (127.0.0.1) for that domain.
+			Request Flow:
+
+			You type http://localdomain.com in your web browser.
+			The hosts file helps your computer understand that localdomain.com is mapped to 127.0.0.1 (localhost).
+			Your browser sends the HTTP request to localdomain.com.
+			Nginx, configured to listen on port 80 for localdomain.com, receives the request.
+			Nginx proxies the request to the Spring Boot application running on localhost:8080/social.
+			The Spring Boot application processes the request, performs any necessary operations, and sends the response back to Nginx.
+			Nginx sends the response back to your web browser, and you see the result.

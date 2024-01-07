@@ -1,0 +1,19 @@
+Intellij ShortCusts
+
+#The Rename refactoring
+	You can easily rename your classes, methods, and variables with automatic correction of all places where they are used.
+	Position the caret at the symbol you want to rename, and press ShiftF6 (Refactor | Rename). Type the new name and press Enter.
+
+
+#Comment and uncomment code
+	Use shortcuts to comment and uncomment lines and blocks of code:
+	CtrlSlash: for single line comments (//...)
+	CtrlShiftSlash: for block comments (/*...*/)
+
+
+#Show Class suggestion and import packages
+	alt+enter
+
+
+#Format Code
+ ctrl+alt+L
